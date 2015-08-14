@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{02F1D8D5-2EB9-495B-8601-04A8D4AE34D2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Preference.Engine</RootNamespace>
+    <AssemblyName>Preference.Engine</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AI\AIPlayer.cs" />
+    <Compile Include="AI\Bidding\BiddingAdviser.cs" />
+    <Compile Include="AI\Bidding\CardSet.cs" />
+    <Compile Include="AI\Bidding\ProbabilityHelper.cs" />
+    <Compile Include="AI\Bidding\HandEvaluator.cs" />
+    <Compile Include="AI\Bidding\MisereEvaluator.cs" />
+    <Compile Include="AI\Bidding\MisereProbabilities.cs" />
+    <Compile Include="AI\Bidding\NoTrumpGameEvaluator.cs" />
+    <Compile Include="AI\Bidding\CardSuitDistribution.cs" />
+    <Compile Include="AI\Bidding\TrickPlayEvaluator.cs" />
+    <Compile Include="AI\Bidding\TrickPlayProbabilities.cs" />
+    <Compile Include="AI\Bidding\TrickProbability.cs" />
+    <Compile Include="AI\Bidding\TrumpGameEvaluator.cs" />
+    <Compile Include="AI\BitwiseCardHelper.cs" />
+    <Compile Include="AI\Playing\HandRandomizer.cs" />
+    <Compile Include="AI\Playing\HandState.cs" />
+    <Compile Include="AI\Playing\Move.cs" />
+    <Compile Include="AI\Playing\PlayingContext.cs" />
+    <Compile Include="AI\Playing\PlayingAdviser.cs" />
+    <Compile Include="AI\Playing\PlayingState.cs" />
+    <Compile Include="AI\Playing\TreeSearcher.cs" />
+    <Compile Include="AI\Playing\TreeNode.cs" />
+    <Compile Include="Bid.cs" />
+    <Compile Include="BiddingContext.cs" />
+    <Compile Include="BidType.cs" />
+    <Compile Include="Card.cs" />
+    <Compile Include="CardCollection.cs" />
+    <Compile Include="CardRank.cs" />
+    <Compile Include="CardSuit.cs" />
+    <Compile Include="Game.cs" />
+    <Compile Include="GameDifficultyLevel.cs" />
+    <Compile Include="GameOptions.cs" />
+    <Compile Include="Rules\AllPassGameExitDifficulty.cs" />
+    <Compile Include="Rules\AllPassGameValueProgression.cs" />
+    <Compile Include="Rules\GameRules.cs" />
+    <Compile Include="Hand.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="PlayerScore.cs" />
+    <Compile Include="PlayingActionEventArgs.cs" />
+    <Compile Include="PlayingContext.cs" />
+    <Compile Include="GameType.cs" />
+    <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RandomHelper.cs" />
+    <Compile Include="Rules\SochiRules.cs" />
+    <Compile Include="Rules\WhistingResponsibility.cs" />
+    <Compile Include="Rules\WhistingType.cs" />
+    <Compile Include="RuleViolationException.cs" />
+    <Compile Include="DefenderAction.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

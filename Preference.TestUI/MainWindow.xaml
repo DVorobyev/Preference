@@ -1,0 +1,50 @@
+﻿<Window x:Name="MyWindow" x:Class="Preference.TestUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:test="clr-namespace:Preference.TestUI"
+        Title="Preference Game Test UI" Height="500" Width="1200" KeyDown="MyWindow_KeyDown" Loaded="MyWindow_Loaded" MouseLeftButtonDown="MyWindow_MouseLeftButtonDown">
+
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="FontFamily" Value="Comic Sans MS"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=IsActive}" Value="True">
+                    <Setter Property="Foreground" Value="Red"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <test:VisibilityConverter x:Key="MyVisibilityConverter"/>
+        <test:ElapsedTimeConverter x:Key="MyElapsedTimeConverter"/>
+    
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <TextBlock x:Name="Hand1Cards" HorizontalAlignment="Left" Margin="37,31,0,0" Text="{Binding Path=CardsAsString}" VerticalAlignment="Top" Height="40" Width="473"/>
+        <TextBlock Grid.Column="1" x:Name="Hand2Cards" HorizontalAlignment="Right" Margin="0,31,37,-3" Text="{Binding Path=CardsAsString}" VerticalAlignment="Top" Height="40" Width="473" TextAlignment="Right"/>
+        <TextBlock Grid.Row ="3" Grid.ColumnSpan="2" x:Name="Hand3Cards" HorizontalAlignment="Center" Text="{Binding Path=CardsAsString}" VerticalAlignment="Center" Height="40" Width="473" TextAlignment="Center"/>
+        <TextBlock Grid.Row="1" x:Name="PlayedCard1" HorizontalAlignment="Right" Text="{Binding Path=PlayedCard}" VerticalAlignment="Bottom" Height="57" Width="49"/>
+        <TextBlock Grid.Row="1" Grid.Column="1" x:Name="PlayedCard2" HorizontalAlignment="Left" Text="{Binding Path=PlayedCard}" VerticalAlignment="Bottom" Height="57" Width="49"/>
+        <TextBlock Grid.Row="2" Grid.ColumnSpan="2" x:Name="PlayedCard3" HorizontalAlignment="Center" Text="{Binding Path=PlayedCard}" VerticalAlignment="Top" Height="57" Width="49"/>
+        <TextBlock x:Name="Tricks1" HorizontalAlignment="Left" Text="{Binding Path=Tricks, StringFormat=Tricks: {0}}" VerticalAlignment="Top" Width="219" Margin="37,89.73,0,0"/>
+        <TextBlock x:Name="Tricks2" HorizontalAlignment="Right" Text="{Binding Path=Tricks, StringFormat=Tricks: {0}}" VerticalAlignment="Top" TextAlignment="Right" Width="219" Grid.Column="1" Grid.Row="1" Margin="0,0,37,0"/>
+        <TextBlock x:Name="Tricks3" HorizontalAlignment="Left" Text="{Binding Path=Tricks, StringFormat=Tricks: {0}}" VerticalAlignment="Top" TextAlignment="Right" Width="219" Grid.Column="1" Grid.Row="3" Margin="276.454,38.8,0,0"/>
+        <TextBlock x:Name="Timer1" Text="{Binding ElementName=MyWindow, Path=ElapsedTime, Converter={StaticResource MyElapsedTimeConverter}, StringFormat={}{0:m\\:ss}}" Visibility="{Binding Path=IsActive, Converter={StaticResource MyVisibilityConverter}}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="414.543,89.73,0,0" Width="100" Height="28"/>
+        <TextBlock x:Name="Timer2" Text="{Binding ElementName=MyWindow, Path=ElapsedTime, Converter={StaticResource MyElapsedTimeConverter}, StringFormat={}{0:m\\:ss}}" Visibility="{Binding Path=IsActive, Converter={StaticResource MyVisibilityConverter}}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="86.8,89.6,0,0" Width="100" Height="28" Grid.Column="1"/>
+        <TextBlock x:Name="Timer3" Text="{Binding ElementName=MyWindow, Path=ElapsedTime, Converter={StaticResource MyElapsedTimeConverter}, StringFormat={}{0:m\\:ss}}" Visibility="{Binding Path=IsActive, Converter={StaticResource MyVisibilityConverter}}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="136.5,0,0,0" Width="100" Height="28" Grid.Column="1" Grid.Row="3"/>
+    </Grid>
+
+</Window>
